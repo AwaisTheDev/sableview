@@ -25,11 +25,23 @@
             "text": "Ethically farmed beef, grass-fed & finished in the hills of the Noosa Hinterland",
             "text_style": "body"
           }
+        },
+        "buttons_9MNmXC": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
         }
       },
       "block_order": [
         "heading_VVtd4d",
-        "text_hQEkdm"
+        "text_hQEkdm",
+        "buttons_9MNmXC"
       ],
       "settings": {
         "image": "shopify://shop_images/timnikki-231_COPY_2.jpg",
@@ -69,7 +81,11 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "media_type": "image",
         "image": "shopify://shop_images/CKP195_Large_e5420ac9-3423-4174-b04b-b3b02f82b4f2.jpg",
+        "video_url": "",
+        "video_description": "",
+        "enable_video_looping": false,
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
