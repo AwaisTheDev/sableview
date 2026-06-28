@@ -1,0 +1,77 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-5"
+      }
+    },
+    "rich_text_azRkCh": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_z6r6eR": {
+          "type": "heading",
+          "settings": {
+            "heading": "Sableveiw Farm Store",
+            "heading_size": "h1"
+          }
+        },
+        "text_DFJ93G": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our beef boxes were created to make it easy for families to enjoy premium, nutrient-dense grass-fed beef straight from our farm.</p><p>By purchasing a Sableview Farm beef box, you're supporting ethical farming, sustainable land management, and a more connected way of eating. From our paddocks to your plate, we provide wholesome, chemical-free beef you can trust and feel good about feeding your family.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_z6r6eR",
+        "text_DFJ93G"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-5",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "enable_filtering": true,
+        "filter_type": "horizontal",
+        "enable_sorting": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "rich_text_azRkCh",
+    "product-grid"
+  ]
+}
