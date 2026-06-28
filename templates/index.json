@@ -45,6 +45,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/timnikki-231_COPY_2.jpg",
+        "image_2": "shopify://shop_images/Screenshot_2026-06-15_at_12.47.50_PM_Large_c6523f5a-5958-4c49-a403-9a9d352ca061.jpg",
         "image_overlay_opacity": 40,
         "image_height": "medium",
         "image_behavior": "none",
