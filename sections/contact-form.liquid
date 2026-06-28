@@ -134,6 +134,9 @@
       aria-labelledby="tab-contact-{{ section.id }}"
       data-active
     >
+      {%- if section.settings.contact_description != blank -%}
+        <div class="rte" style="margin-bottom: 2rem;">{{ section.settings.contact_description }}</div>
+      {%- endif -%}
       {%- liquid
         assign contact_form_class = 'isolate'
         if settings.animations_reveal_on_scroll
@@ -522,12 +525,22 @@
     },
     {
       "type": "header",
+      "content": "Contact form"
+    },
+    {
+      "type": "richtext",
+      "id": "contact_description",
+      "label": "Contact form description",
+      "default": "<p>Have a question or need help? Fill out the form below and we'll get back to you as soon as possible.</p>"
+    },
+    {
+      "type": "header",
       "content": "Feedback form"
     },
     {
-      "type": "textarea",
+      "type": "richtext",
       "id": "feedback_description",
-      "default": "Thank you for choosing a Sableview Farm Beef Box. We value your feedback and would appreciate you taking a few minutes to share your experience.",
+      "default": "<p>Thank you for choosing a Sableview Farm Beef Box. We value your feedback and would appreciate you taking a few minutes to share your experience.</p>",
       "label": "Feedback description"
     },
     {
