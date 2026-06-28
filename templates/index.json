@@ -104,13 +104,13 @@
       "type": "featured-collection",
       "settings": {
         "collection": "all",
-        "products_to_show": 8,
+        "products_to_show": 3,
         "title": "Featured Products",
         "heading_size": "h0",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "columns_desktop": 4,
+        "columns_desktop": 3,
         "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": true,
@@ -122,7 +122,7 @@
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "none",
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 100,
         "padding_bottom": 100
@@ -162,6 +162,7 @@
         "text_tkecir",
         "buttons_P4zkBH"
       ],
+      "disabled": true,
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/CKP197_Large_a6c376d6-c817-4dd5-9634-2f65744d769e.jpg",
