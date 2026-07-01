@@ -12,18 +12,11 @@
     "image_banner": {
       "type": "image-banner",
       "blocks": {
-        "heading_VVtd4d": {
-          "type": "heading",
-          "settings": {
-            "heading": "Farming In Sync With Nature.",
-            "heading_size": "hxl"
-          }
-        },
         "text_hQEkdm": {
           "type": "text",
           "settings": {
-            "text": "Ethically farmed beef, grass-fed & finished in the hills of the Noosa Hinterland",
-            "text_style": "body"
+            "text": "<strong>Ethically farmed beef, grass-fed & finished in the hills of the Noosa Hinterland</strong>",
+            "text_style": "caption-with-letter-spacing"
           }
         },
         "buttons_9MNmXC": {
@@ -39,14 +32,13 @@
         }
       },
       "block_order": [
-        "heading_VVtd4d",
         "text_hQEkdm",
         "buttons_9MNmXC"
       ],
       "settings": {
-        "image": "shopify://shop_images/timnikki-231_COPY_2.jpg",
+        "image": "shopify://shop_images/IMG_9546_copy.jpg",
         "image_overlay_opacity": 40,
-        "image_height": "medium",
+        "image_height": "small",
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
