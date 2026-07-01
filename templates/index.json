@@ -12,11 +12,11 @@
     "image_banner": {
       "type": "image-banner",
       "blocks": {
-        "text_hQEkdm": {
-          "type": "text",
+        "heading_DhfEbr": {
+          "type": "heading",
           "settings": {
-            "text": "<strong>Ethically farmed beef, grass-fed & finished in the hills of the Noosa Hinterland</strong>",
-            "text_style": "caption-with-letter-spacing"
+            "heading": "Ethically farmed beef, grass-fed & finished in the hills of the Noosa Hinterland",
+            "heading_size": "h1"
           }
         },
         "buttons_9MNmXC": {
@@ -32,13 +32,13 @@
         }
       },
       "block_order": [
-        "text_hQEkdm",
+        "heading_DhfEbr",
         "buttons_9MNmXC"
       ],
       "settings": {
         "image": "shopify://shop_images/IMG_9546_copy.jpg",
         "image_overlay_opacity": 40,
-        "image_height": "small",
+        "image_height": "medium",
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
