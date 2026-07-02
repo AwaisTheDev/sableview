@@ -1,0 +1,498 @@
+{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .feedback-form__question {
+    margin-bottom: 2.5rem;
+    border: none;
+    padding: 0;
+  }
+
+  .feedback-form__question legend {
+    font-weight: var(--font-body-weight-bold);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    padding: 0;
+  }
+
+  .feedback-form__option {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+  }
+
+  .feedback-form__option input[type="checkbox"],
+  .feedback-form__option input[type="radio"] {
+    width: 1.8rem;
+    height: 1.8rem;
+    accent-color: rgb(var(--color-button));
+    flex-shrink: 0;
+  }
+
+  .feedback-form__option label {
+    cursor: pointer;
+    font-size: 1.4rem;
+  }
+
+  .feedback-form__select {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .feedback-form__other-field {
+    margin-top: 1rem;
+  }
+
+  .feedback-form__other-field[hidden] {
+    display: none;
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {{ section.settings.heading }}
+      </h2>
+    {%- else -%}
+      <h2 class="visually-hidden">Feedback</h2>
+    {%- endif -%}
+
+    {%- if section.settings.feedback_description != blank -%}
+      <div class="rte" style="margin-bottom: 2rem;">{{ section.settings.feedback_description }}</div>
+    {%- endif -%}
+
+    {%- liquid
+      assign beef_product_collection = section.settings.beef_box_collection
+      assign use_product_list = false
+
+      if beef_product_collection == blank
+        assign fallback_handle = section.settings.fallback_collection_handle | default: 'all' | strip
+        if collections[fallback_handle] != blank
+          assign beef_product_collection = collections[fallback_handle]
+        elsif collections.all != blank
+          assign beef_product_collection = collections.all
+        endif
+      endif
+
+      if section.settings.beef_box_collection == blank and section.settings.beef_box_products.size > 0
+        assign use_product_list = true
+      endif
+    -%}
+
+    {%- form 'contact', id: 'FeedbackForm', class: 'isolate' -%}
+      <input type="hidden" name="contact[tags]" value="feedback,beef-box-questionnaire">
+      <input type="hidden" name="contact[subject]" value="Beef Box Feedback Questionnaire">
+
+      {%- if form.posted_successfully? -%}
+        <h3 class="form-status form-status-list form__message" tabindex="-1" autofocus>
+          <span class="svg-wrapper">{{- 'icon-success.svg' | inline_asset_content -}}</span>
+          {{ section.settings.feedback_success_message | default: 'Thank you for your feedback!' }}
+        </h3>
+      {%- elsif form.errors -%}
+        <div class="form__message">
+          <h3 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
+            <span class="svg-wrapper">{{- 'icon-error.svg' | inline_asset_content -}}</span>
+            Something went wrong. Please try again.
+          </h3>
+        </div>
+      {%- endif -%}
+
+      {%- unless form.posted_successfully? -%}
+        <div class="contact__fields">
+          <div class="field">
+            <input
+              class="field__input"
+              type="email"
+              id="FeedbackForm-email-{{ section.id }}"
+              name="contact[email]"
+              autocomplete="email"
+              placeholder="Your email"
+              value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+            >
+            <label class="field__label" for="FeedbackForm-email-{{ section.id }}">Your email (optional)</label>
+          </div>
+        </div>
+
+        <fieldset class="feedback-form__question">
+          <legend>1. Which Beef Box did you receive?</legend>
+          <div class="field">
+            <select
+              class="field__input feedback-form__select"
+              id="box-select-{{ section.id }}"
+              name="contact[Beef Box Received]"
+              required
+            >
+              <option value="" disabled selected>Select a beef box</option>
+              {%- if use_product_list -%}
+                {%- for beef_product in section.settings.beef_box_products -%}
+                  <option value="{{ beef_product.title | escape }}">{{ beef_product.title | escape }}</option>
+                {%- endfor -%}
+              {%- elsif beef_product_collection != blank -%}
+                {%- for beef_product in beef_product_collection.products limit: 50 -%}
+                  <option value="{{ beef_product.title | escape }}">{{ beef_product.title | escape }}</option>
+                {%- endfor -%}
+              {%- endif -%}
+              <option value="Other">Other</option>
+            </select>
+            <label class="field__label" for="box-select-{{ section.id }}">Beef box</label>
+          </div>
+          <div class="field feedback-form__other-field" id="box-other-field-{{ section.id }}" hidden>
+            <input
+              class="field__input"
+              type="text"
+              id="box-other-specify-{{ section.id }}"
+              name="contact[Beef Box Other]"
+              placeholder="If other, please specify"
+            >
+            <label class="field__label" for="box-other-specify-{{ section.id }}">If other, please specify</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="feedback-form__question">
+          <legend>2. Which cuts were your favourites? (Select all that apply)</legend>
+          <div class="feedback-form__option">
+            <input type="checkbox" id="cut-rib-{{ section.id }}" name="contact[Favourite Cuts][]" value="Rib Fillet">
+            <label for="cut-rib-{{ section.id }}">Rib Fillet</label>
+          </div>
+          <div class="feedback-form__option">
+            <input type="checkbox" id="cut-rump-{{ section.id }}" name="contact[Favourite Cuts][]" value="Rump Steak">
+            <label for="cut-rump-{{ section.id }}">Rump Steak</label>
+          </div>
+          <div class="feedback-form__option">
+            <input
+              type="checkbox"
+              id="cut-tbone-{{ section.id }}"
+              name="contact[Favourite Cuts][]"
+              value="T-Bone Steak"
+            >
+            <label for="cut-tbone-{{ section.id }}">T-Bone Steak</label>
+          </div>
+          <div class="feedback-form__option">
+            <input type="checkbox" id="cut-eye-{{ section.id }}" name="contact[Favourite Cuts][]" value="Eye Fillet">
+            <label for="cut-eye-{{ section.id }}">Eye Fillet</label>
+          </div>
+          <div class="feedback-form__option">
+            <input
+              type="checkbox"
+              id="cut-burgers-{{ section.id }}"
+              name="contact[Favourite Cuts][]"
+              value="Sirloin Steak"
+            >
+            <label for="cut-burgers-{{ section.id }}">Sirloin Steak</label>
+          </div>
+          <div class="feedback-form__option">
+            <input
+              type="checkbox"
+              id="cut-sausage-mince-{{ section.id }}"
+              name="contact[Favourite Cuts][]"
+              value="BBQ Steak"
+            >
+            <label for="cut-sausage-mince-{{ section.id }}">BBQ Steak</label>
+          </div>
+          <div class="feedback-form__option">
+            <input
+              type="checkbox"
+              id="cut-premium-mince-{{ section.id }}"
+              name="contact[Favourite Cuts][]"
+              value="Premium Mince"
+            >
+            <label for="cut-premium-mince-{{ section.id }}">Premium Mince</label>
+          </div>
+          <div class="feedback-form__option">
+            <input
+              type="checkbox"
+              id="cut-sausages-{{ section.id }}"
+              name="contact[Favourite Cuts][]"
+              value="Beef Sausages"
+            >
+            <label for="cut-sausages-{{ section.id }}">Beef Sausages</label>
+          </div>
+          <div class="feedback-form__option">
+            <input
+              type="checkbox"
+              id="cut-slow-{{ section.id }}"
+              name="contact[Favourite Cuts][]"
+              value="Slow-Cook Cuts (e.g. diced beef, chuck)"
+            >
+            <label for="cut-slow-{{ section.id }}">Slow-Cook Cuts (e.g. diced beef, chuck)</label>
+          </div>
+          <div class="feedback-form__option">
+            <input
+              type="checkbox"
+              id="cut-roast-{{ section.id }}"
+              name="contact[Favourite Cuts][]"
+              value="Roast Cuts (e.g. brisket)"
+            >
+            <label for="cut-roast-{{ section.id }}">Roast Cuts (e.g. brisket)</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="feedback-form__question">
+          <legend>3. Which sausage variety was your favourite? (Select one or more)</legend>
+          <div class="feedback-form__option">
+            <input
+              type="checkbox"
+              id="sausage-paleo-{{ section.id }}"
+              name="contact[Favourite Sausage][]"
+              value="Paleo Sausage"
+            >
+            <label for="sausage-paleo-{{ section.id }}">Paleo Sausage</label>
+          </div>
+          <div class="feedback-form__option">
+            <input
+              type="checkbox"
+              id="sausage-plain-{{ section.id }}"
+              name="contact[Favourite Sausage][]"
+              value="Plain Sausage"
+            >
+            <label for="sausage-plain-{{ section.id }}">Plain Sausage</label>
+          </div>
+          <div class="feedback-form__option">
+            <input
+              type="checkbox"
+              id="sausage-chilli-{{ section.id }}"
+              name="contact[Favourite Sausage][]"
+              value="Chilli & Honey Sausage"
+            >
+            <label for="sausage-chilli-{{ section.id }}">Chilli & Honey Sausage</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="feedback-form__question">
+          <legend>
+            4. Is there anything you would like to see changed or included in future Beef Boxes? (Select all that apply)
+          </legend>
+          <div class="feedback-form__option">
+            <input
+              type="checkbox"
+              id="change-cuts-{{ section.id }}"
+              name="contact[Future Changes][]"
+              value="Different cuts"
+            >
+            <label for="change-cuts-{{ section.id }}">Different cuts</label>
+          </div>
+          <div class="feedback-form__option">
+            <input
+              type="checkbox"
+              id="change-customise-{{ section.id }}"
+              name="contact[Future Changes][]"
+              value="Greater ability to customise or choose specific cuts"
+            >
+            <label for="change-customise-{{ section.id }}">Greater ability to customise or choose specific cuts</label>
+          </div>
+          <div class="feedback-form__option">
+            <input
+              type="checkbox"
+              id="change-bones-{{ section.id }}"
+              name="contact[Future Changes][]"
+              value="Bones or pet mince included"
+            >
+            <label for="change-bones-{{ section.id }}">Bones or pet mince included</label>
+          </div>
+          <div class="feedback-form__option">
+            <input
+              type="checkbox"
+              id="change-smaller-{{ section.id }}"
+              name="contact[Future Changes][]"
+              value="Smaller pack sizes"
+            >
+            <label for="change-smaller-{{ section.id }}">Smaller pack sizes</label>
+          </div>
+          <div class="feedback-form__option">
+            <input
+              type="checkbox"
+              id="change-larger-{{ section.id }}"
+              name="contact[Future Changes][]"
+              value="Larger pack sizes"
+            >
+            <label for="change-smaller-{{ section.id }}">Larger pack sizes</label>
+          </div>
+          <div class="feedback-form__option">
+            <input
+              type="checkbox"
+              id="change-other-{{ section.id }}"
+              name="contact[Future Changes][]"
+              value="Other suggestions"
+            >
+            <label for="change-other-{{ section.id }}">Other suggestions</label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <textarea
+            rows="4"
+            id="FeedbackForm-comments-{{ section.id }}"
+            class="text-area field__input"
+            name="contact[body]"
+            placeholder="Additional comments or suggestions"
+          ></textarea>
+          <label class="form__label field__label" for="FeedbackForm-comments-{{ section.id }}"
+            >Additional comments</label
+          >
+        </div>
+
+        <div class="contact__button" style="margin-top: 2rem;">
+          <button type="submit" class="button">Submit Feedback</button>
+        </div>
+      {%- endunless -%}
+    {%- endform -%}
+  </div>
+</div>
+
+<script>
+  (function () {
+    var sectionId = '{{ section.id }}';
+    var form = document.getElementById('FeedbackForm');
+    var boxSelect = document.getElementById('box-select-' + sectionId);
+    var otherField = document.getElementById('box-other-field-' + sectionId);
+    var emailInput = document.getElementById('FeedbackForm-email-' + sectionId);
+
+    if (boxSelect && otherField) {
+      var toggleOtherField = function () {
+        var isOther = boxSelect.value === 'Other';
+        otherField.hidden = !isOther;
+      };
+
+      boxSelect.addEventListener('change', toggleOtherField);
+      toggleOtherField();
+    }
+
+    if (form && emailInput) {
+      form.addEventListener('submit', function () {
+        if (!emailInput.value.trim()) {
+          emailInput.value = 'feedback@{{ shop.permanent_domain }}';
+        }
+      });
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Feedback form",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "richtext",
+      "id": "feedback_description",
+      "default": "<p>Thank you for choosing a Sableview Farm Beef Box. We value your feedback and would appreciate you taking a few minutes to share your experience.</p>",
+      "label": "Feedback description"
+    },
+    {
+      "type": "text",
+      "id": "feedback_success_message",
+      "default": "Thank you for your feedback! We greatly appreciate your support of Sableview Farm.",
+      "label": "Feedback success message"
+    },
+    {
+      "type": "header",
+      "content": "Beef box products"
+    },
+    {
+      "type": "collection",
+      "id": "beef_box_collection",
+      "label": "Beef box collection",
+      "info": "Products from this collection appear in the beef box dropdown. Defaults to all products if empty."
+    },
+    {
+      "type": "text",
+      "id": "fallback_collection_handle",
+      "label": "Fallback collection handle",
+      "default": "all",
+      "info": "Used when no collection is selected. Default is \"all\" (every product in your store)."
+    },
+    {
+      "type": "product_list",
+      "id": "beef_box_products",
+      "label": "Or select individual products",
+      "limit": 50,
+      "info": "Optional. Overrides the fallback collection when no collection is selected above."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feedback form"
+    }
+  ]
+}
+{% endschema %}

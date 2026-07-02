@@ -14,7 +14,7 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Contact Us",
+            "heading": "Feedback",
             "heading_size": "h0"
           }
         }
@@ -37,11 +37,14 @@
       }
     },
     "form": {
-      "type": "contact-form",
+      "type": "feedback-form",
       "settings": {
         "heading": "",
         "heading_size": "h1",
-        "contact_description": "<p>We'd love to hear from you. Whether you have a question about our beef boxes or farm practices, feel free to get in touch—we'll get back to you as soon as we can.</p>",
+        "feedback_description": "<p>Thank you for choosing a Sableview Farm Beef Box. We value your feedback and would appreciate you taking a few minutes to share your experience.</p>",
+        "feedback_success_message": "Thank you for your feedback! We greatly appreciate your support of Sableview Farm.",
+        "beef_box_collection": "all",
+        "fallback_collection_handle": "all",
         "color_scheme": "scheme-5",
         "padding_top": 80,
         "padding_bottom": 80

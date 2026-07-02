@@ -67,7 +67,10 @@
             "heading": "What's Included",
             "icon": "check_mark",
             "content": "",
-            "page": ""
+            "page": "",
+            "use_product_metafield": true,
+            "metafield_namespace": "custom",
+            "metafield_key": "what_s_included"
           }
         },
         "share": {

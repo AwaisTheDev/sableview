@@ -211,23 +211,46 @@
                 {%- when 'custom_liquid' -%}
                   {{ block.settings.custom_liquid }}
                 {%- when 'collapsible_tab' -%}
-                  <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
-                    <details id="Details-{{ block.id }}-{{ section.id }}">
-                      <summary>
-                        <div class="summary__title">
-                          {% render 'icon-accordion', icon: block.settings.icon %}
-                          <h2 class="h4 accordion__title inline-richtext">
-                            {{ block.settings.heading | default: block.settings.page.title | escape }}
-                          </h2>
+                  {%- liquid
+                    assign product_metafield = blank
+                    if block.settings.use_product_metafield and block.settings.metafield_key != blank
+                      assign metafield_namespace = block.settings.metafield_namespace | default: 'custom'
+                      assign product_metafield = product.metafields[metafield_namespace][block.settings.metafield_key]
+                    endif
+
+                    assign has_tab_content = false
+                    if block.settings.content != blank
+                      assign has_tab_content = true
+                    endif
+                    if block.settings.page.content != blank
+                      assign has_tab_content = true
+                    endif
+                    if product_metafield != blank
+                      assign has_tab_content = true
+                    endif
+                  -%}
+                  {%- if has_tab_content -%}
+                    <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
+                      <details id="Details-{{ block.id }}-{{ section.id }}">
+                        <summary>
+                          <div class="summary__title">
+                            {% render 'icon-accordion', icon: block.settings.icon %}
+                            <h2 class="h4 accordion__title inline-richtext">
+                              {{ block.settings.heading | default: block.settings.page.title | escape }}
+                            </h2>
+                          </div>
+                          {{- 'icon-caret.svg' | inline_asset_content -}}
+                        </summary>
+                        <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
+                          {%- if product_metafield != blank -%}
+                            {{ product_metafield | metafield_tag }}
+                          {%- endif -%}
+                          {{ block.settings.content }}
+                          {{ block.settings.page.content }}
                         </div>
-                        {{- 'icon-caret.svg' | inline_asset_content -}}
-                      </summary>
-                      <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
-                        {{ block.settings.content }}
-                        {{ block.settings.page.content }}
-                      </div>
-                    </details>
-                  </div>
+                      </details>
+                    </div>
+                  {%- endif -%}
                 {%- when 'quantity_selector' -%}
                   <div
                     id="Quantity-Form-{{ section.id }}"
@@ -1308,6 +1331,28 @@
           "type": "page",
           "id": "page",
           "label": "t:sections.main-product.blocks.collapsible_tab.settings.page.label"
+        },
+        {
+          "type": "header",
+          "content": "Product metafield"
+        },
+        {
+          "type": "checkbox",
+          "id": "use_product_metafield",
+          "default": false,
+          "label": "Use product metafield for content"
+        },
+        {
+          "type": "text",
+          "id": "metafield_namespace",
+          "default": "custom",
+          "label": "Metafield namespace"
+        },
+        {
+          "type": "text",
+          "id": "metafield_key",
+          "label": "Metafield key",
+          "info": "Example: what_s_included"
         }
       ]
     },
