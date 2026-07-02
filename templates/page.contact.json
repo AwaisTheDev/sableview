@@ -1,0 +1,70 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "image_banner_LknWGa": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_iVxT79": {
+          "type": "heading",
+          "settings": {
+            "heading": "Contact Us",
+            "heading_size": "h0"
+          }
+        }
+      },
+      "block_order": [
+        "heading_iVxT79"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/IMG_9546_2_Large_1c4a7bf5-8b04-44ee-ba52-40f8bc89e200.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-5",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "tab_contact_label": "Contact Us",
+        "tab_feedback_label": "Feedback",
+        "contact_description": "<p>We’d love to hear from you. Whether you have a question about our beef boxes or farm practices, feel free to get in touch— we’ll get back to you as soon as we can.</p>",
+        "feedback_description": "<p>Thank you for choosing a Sableview Farm Beef Box. We value your feedback and would appreciate you taking a few minutes to share your experience.</p>",
+        "feedback_success_message": "Thank you for your feedback! We greatly appreciate your support of Sableview Farm.",
+        "color_scheme": "scheme-5",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_LknWGa",
+    "form"
+  ]
+}

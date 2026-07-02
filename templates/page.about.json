@@ -1,0 +1,236 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_m8GNAh": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_zimHr8": {
+          "type": "heading",
+          "settings": {
+            "heading": "About Sableview Farms",
+            "heading_size": "hxl"
+          }
+        }
+      },
+      "block_order": [
+        "heading_zimHr8"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/CKP197.jpg",
+        "image_overlay_opacity": 10,
+        "image_height": "small",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "image_with_text_kLDABd": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_Wfb6mj": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Story",
+            "heading_size": "h0"
+          }
+        },
+        "text_TzPw4f": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Sableview Farm is a regenerative and biodynamic farm in the Noosa Hinterland focused on producing premium grass-fed,chemical-free beef while promoting wellness, sustainability, and connection to nature.</p><p>Nestled in the hills of the Noosa Hinterland, our farm is a place where we live slowly, grow intentionally, and stay connected to nature. What started as a personal lifestyle shift has grown into something we now love sharing with others.</p><p>At Sableview, we believe healthy living doesn’t have to be complicated. By getting back to basics, eating seasonally, and living more in tune with the land, we’ve found a way of life that feels grounding, nourishing, and meaningful.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Wfb6mj",
+        "text_TzPw4f"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "media_type": "image",
+        "image": "shopify://shop_images/CKP189_Large_5a932f03-e53b-4c6a-b23d-2e48d34b6137.jpg",
+        "video_url": "",
+        "video_description": "",
+        "enable_video_looping": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-3",
+        "color_scheme": "scheme-3",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "image_with_text_XGnFEw": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_YeFyac": {
+          "type": "heading",
+          "settings": {
+            "heading": "From Paddock to Plate",
+            "heading_size": "h0"
+          }
+        },
+        "text_jzc7jN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>For us, farming is about more than producing food — it’s about creating healthy soil, healthy animals, and healthy people. </p><p>We spend time with our cattle, handling them in a calm manner and rotationally grazing through our pastures, a calm animal makes for more tender meat. We often say we produce “beef with spirit” because we genuinely care about the entire process, from paddock to plate.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_YeFyac",
+        "text_jzc7jN"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "media_type": "image",
+        "image": "shopify://shop_images/CKP173_Large_fe02a251-6293-415c-bd99-27f3e8505697.jpg",
+        "video_url": "",
+        "video_description": "",
+        "enable_video_looping": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-5",
+        "color_scheme": "scheme-5",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "image_with_text_9tH4ke": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_yUj9aU": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why Chemical Free?",
+            "heading_size": "h0"
+          }
+        },
+        "text_PRx3jf": {
+          "type": "text",
+          "settings": {
+            "text": "<p>For us, chemical-free farming isn’t about trends — it’s about transparency and integrity. </p><p>We believe the quality of food starts in the soil. Healthy soil creates healthy plants, healthy animals, and ultimately healthier people. </p><p>The way food is grown matters, and we want people to feel connected to and confident in what they’re eating. </p><p>This is how we live ourselves, and it’s something we feel incredibly passionate about sharing with others</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_yUj9aU",
+        "text_PRx3jf"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "media_type": "image",
+        "image": "shopify://shop_images/Screenshot_2026-06-28_at_1.56.49_pm.png",
+        "video_url": "",
+        "video_description": "",
+        "enable_video_looping": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-3",
+        "color_scheme": "scheme-3",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "image_banner_iiNtgy": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_B77RTW": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Order Your Box Today</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_aj4b6A": {
+          "type": "text",
+          "settings": {
+            "text": "Premium grass-fed beef, delivered straight from our farm to your door.",
+            "text_style": "body"
+          }
+        },
+        "buttons_GdgfAG": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_B77RTW",
+        "text_aj4b6A",
+        "buttons_GdgfAG"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/CKP197_Large_a6c376d6-c817-4dd5-9634-2f65744d769e.jpg",
+        "image_overlay_opacity": 20,
+        "image_height": "small",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-5",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_m8GNAh",
+    "image_with_text_kLDABd",
+    "image_with_text_XGnFEw",
+    "image_with_text_9tH4ke",
+    "image_banner_iiNtgy"
+  ]
+}

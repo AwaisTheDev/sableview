@@ -1,0 +1,180 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_DhfEbr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Ethically farmed beef, grass-fed & finished in the hills of the Noosa Hinterland",
+            "heading_size": "h1"
+          }
+        },
+        "buttons_9MNmXC": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_DhfEbr",
+        "buttons_9MNmXC"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/IMG_9546_copy.jpg",
+        "image_overlay_opacity": 40,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "image_with_text_xbEi8N": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_CkyKnA": {
+          "type": "heading",
+          "settings": {
+            "heading": "Driven By Vision",
+            "heading_size": "h0"
+          }
+        },
+        "text_Jw6qkn": {
+          "type": "text",
+          "settings": {
+            "text": "<p>To nurture the land, care for our animals, and produce premium grass-fed beef that nourishes people, supports sustainability, and inspires a deeper connection to nature.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_CkyKnA",
+        "text_Jw6qkn"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "media_type": "image",
+        "image": "shopify://shop_images/CKP195_Large_e5420ac9-3423-4174-b04b-b3b02f82b4f2.jpg",
+        "video_url": "",
+        "video_description": "",
+        "enable_video_looping": false,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-3",
+        "color_scheme": "scheme-3",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "all",
+        "products_to_show": 3,
+        "title": "Featured Products",
+        "heading_size": "h0",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 3,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-5",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "image_banner_7xHxYt": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_VqCQra": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Order Your Box Today</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_tkecir": {
+          "type": "text",
+          "settings": {
+            "text": "Premium grass-fed beef, delivered straight from our farm to your door.",
+            "text_style": "body"
+          }
+        },
+        "buttons_P4zkBH": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop Now",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_VqCQra",
+        "text_tkecir",
+        "buttons_P4zkBH"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/CKP197_Large_a6c376d6-c817-4dd5-9634-2f65744d769e.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "image_with_text_xbEi8N",
+    "featured_collection",
+    "image_banner_7xHxYt"
+  ]
+}
